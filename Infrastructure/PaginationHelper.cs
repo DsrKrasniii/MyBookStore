@@ -43,7 +43,7 @@ namespace MyBookStore.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i < PagePagey.TotalPages; i++)
+            for (int i = 1; i <= PagePagey.TotalPages; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
 
@@ -52,7 +52,7 @@ namespace MyBookStore.Infrastructure
                 if (PageClassesEnabled)
                 {
                     tb.AddCssClass(PageClass);
-                    tb.AddCssClass(i == PagePagey.TotalPages? PageClassSelected : PageClassNormal);
+                    tb.AddCssClass(i == PagePagey.CurrentPage ? PageClassSelected : PageClassNormal);
                 }
 
                 tb.InnerHtml.Append(i.ToString());

@@ -4639,7 +4639,7 @@ textarea.form-control-lg {
     font-size: var(--bs-badge-font-size);
     font-weight: var(--bs-badge-font-weight);
     line-height: 1;
-    color: #0000FF;
+    color: #fff;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;

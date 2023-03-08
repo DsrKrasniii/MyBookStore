@@ -15,20 +15,24 @@ namespace MyBookStore.Controllers
         {
             repo = temp;
         }
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string bookCategory, int pageNum = 1)
         {
             int resSize = 5;
 
             var x = new BooksViewModel
             {
                 Books = repo.Books
+                .Where(p => p.Category == bookCategory || bookCategory == null)
                 .OrderBy(p => p.Title)
                 .Skip((pageNum - 1) * resSize)
                 .Take(resSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotBooks = repo.Books.Count(),
+                    TotBooks = //repo.Books.Count(),
+                        (bookCategory == null 
+                        ? repo.Books.Count() 
+                        : repo.Books.Where(x => x.Category == bookCategory).Count()),
                     BooksPerPage = resSize,
                     CurrentPage = pageNum
                 }

@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, MyBookStore
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -11,11 +14,34 @@
         <span class="navbar-brand ml-2">My Book Store</span>
     </div>
     <div class="row m-1 p-1">
+
+        <div id="types" class="col-3">
+            <vc:types></vc:types>
+        </div>
+
         <div class="col-9">
             @RenderBody()
         </div>
     </div>
 
-            <footer>Copyright --- Trey Redd</footer>
+
+
+
+    <!-- This is my extra Bootstrap, I modified my footer and saw how to break it into several sections, experimenting with differenct colors-->
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <section class="mb-4">
+                We Love Books!
+            </section>
+            <section class="mb-4" style="background-color: rgb(128 128 128);">
+                Do You?
+            </section>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">Trey Redd</a>
+        </div>
+    </footer>
 </body>
 </html>
