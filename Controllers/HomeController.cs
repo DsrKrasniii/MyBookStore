@@ -21,6 +21,7 @@ namespace MyBookStore.Controllers
 
             var x = new BooksViewModel
             {
+                //sort order of books & split across pages
                 Books = repo.Books
                 .Where(p => p.Category == bookCategory || bookCategory == null)
                 .OrderBy(p => p.Title)
@@ -29,6 +30,7 @@ namespace MyBookStore.Controllers
 
                 PageInfo = new PageInfo
                 {
+                    // filter based on genre
                     TotBooks = //repo.Books.Count(),
                         (bookCategory == null 
                         ? repo.Books.Count() 

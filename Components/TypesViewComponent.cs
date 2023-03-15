@@ -19,7 +19,7 @@ namespace MyBookStore.Components
         public IViewComponentResult Invoke()
         {
             ViewBag.SelectedCategory = RouteData?.Values["bookCategory"];
-
+            // organization of dynamic page entries
             var category = repo.Books
                 .Select(x => x.Category)
                 .Distinct()
